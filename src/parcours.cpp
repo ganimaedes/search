@@ -3,12 +3,12 @@
 #include <cstdlib>
 
 Parcours::Parcours(char *fn, 
-				   int indent, 
-				   std::vector<Directories> &array, 
-				   std::string prevDir,
-				   std::string findFile, 
-				   std::string findExtension, 
-				   std::string strSearchInFile) 
+                   int indent, 
+                   std::vector<Directories> &array, 
+                   std::string prevDir,
+                   std::string findFile, 
+                   std::string findExtension, 
+                   std::string strSearchInFile) 
     : m_fn(fn), 
       m_indent(indent), 
       m_array(array),
@@ -23,10 +23,10 @@ Parcours::Parcours(char *fn,
     Files files = {};
 
     if (m_array.size() == 0) {
-		direct.name = fn;
-		direct.indent = indent;
-		m_array.push_back(direct);
-	}
+        direct.name = fn;
+        direct.indent = indent;
+        m_array.push_back(direct);
+    }
 
     if ((dir = opendir(m_fn)) == nullptr) {
         std::cerr << "opendir() error\n";
@@ -63,9 +63,9 @@ Parcours::Parcours(char *fn,
                     m_foundExt = false;
                     m_foundFileName = false;
                 } else if (S_ISDIR(m_info.st_mode)) {
-                	direct.name = m_path;
-					direct.indent = m_indent;
-					m_array.push_back(direct);
+                    direct.name = m_path;
+                    direct.indent = m_indent;
+                    m_array.push_back(direct);
                 
                     if (!m_findExtension.empty() || !m_strSearchInFile.empty()) {
                         Parcours(const_cast<char *>(m_path.c_str()), m_indent + 1, m_array, m_prevDir, "", m_findExtension, m_strSearchInFile);
@@ -105,23 +105,23 @@ void Parcours::searchFile(Search &search)
 
 void Parcours::printAll(std::vector<Directories> &array)
 {
-	std::string prevDir;
+    std::string prevDir;
 	
-	for (std::size_t i = 0; i < array.size(); ++i) {
-		for (std::size_t j = 0; j < array[i].files.size(); ++j) {
-			if (j == 0) {
-				if (i > 0) {
-					prevDir = array[i - 1].name;
-				}
-				for (int k = 0; k < array[i].indent + 1; ++k) { std::cout << "  "; }
-				std::cout << array[i].name << "\n";
-			}
-			if (array[i].name == array[i].files[j].ofDir) {
-				for (int n = 0; n < array[i].files[j].indent + 2; ++n) { 
-					std::cout << (n == array[i].files[j].indent + 1 ? "|-" : "  "); 
-				}
-				std::cout << array[i].files[j].name << "\n";
-			}	
-		}
-	}
+    for (std::size_t i = 0; i < array.size(); ++i) {
+        for (std::size_t j = 0; j < array[i].files.size(); ++j) {
+            if (j == 0) {
+                if (i > 0) {
+                        prevDir = array[i - 1].name;
+                }
+                for (int k = 0; k < array[i].indent + 1; ++k) { std::cout << "  "; }
+                std::cout << array[i].name << "\n";
+            }
+            if (array[i].name == array[i].files[j].ofDir) {
+                for (int n = 0; n < array[i].files[j].indent + 2; ++n) { 
+                    std::cout << (n == array[i].files[j].indent + 1 ? "|-" : "  "); 
+                }
+                std::cout << array[i].files[j].name << "\n";
+            }	
+        }
+    }
 }
