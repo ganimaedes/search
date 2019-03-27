@@ -20,22 +20,22 @@ void printHelp()
     std::cout << "-------Help For Search Script-------\n\n"
               << "To Execute Program, Type: \n" 
               << "./search Followed by These Options:\n\n"
-              << "-n : \t\t\t\t Specify a File Name to Search\n\n"
-              << "-e : \t\t\t\t Specify a File Extension\n\n"
-              << "-s : \t\t\t\t Specify a String to Search in a File, \n\n"
-              << "     \t\t\t\t Note : The File Name Or File Extension Must be Specified!\n\n"
-              << "-p : \t\t\t\t Print All Files and Folders Inside a Directory\n\n"
-              << "-d : \t\t\t\t Specify a Directory to Search Into\n\n";
+              << "\t-n : \t\t Specify a File Name to Search\n\n"
+              << "\t-e : \t\t Specify a File Extension\n\n"
+              << "\t-s : \t\t Specify a String to Search in a File, \n\n"
+              << "       \t\t\t Note : The File Name Or File Extension Must be Specified!\n\n"
+              << "\t-p : \t\t Print All Files and Folders Inside a Directory\n\n"
+              << "\t-d : \t\t Specify a Directory to Search Into\n\n";
     std::cout << "Examples:\n"
               << "./search -e \"txt\" -s \"cmake\" -d \"$HOME/Documents\"\n"
-              << "  ^       ^          ^            ^\n"
-              << "  ¦       ¦          ¦            ¦-----> Search Within this Directory\n"
-              << "  ¦       ¦          ¦-----> Search the String \"cmake\" in All the Files Found With Extension \".txt\"\n"
+              << "  ^       ^        ^          ^\n"
+              << "  ¦       ¦        ¦          ¦-----> Search Within this Directory\n"
+              << "  ¦       ¦        ¦-----> Search the String \"cmake\" in All the Files Found With Extension \".txt\"\n"
               << "  ¦       ¦-----> Search for extension \".txt\"\n"
               << "  ¦---> Name of Program\n\n";
     std::cout << "./search -n \"CMake\" -d \"$HOME/Documents\"\n"
-              << "  ^       ^            ^\n"
-              << "  ¦       ¦            ¦-----> Search Within this Directory\n"
+              << "  ^       ^          ^\n"
+              << "  ¦       ¦          ¦-----> Search Within this Directory\n"
               << "  ¦       ¦-----> Search for This String in File Name\n"
               << "  ¦---> Name of Program\n";
 }
@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
             }
         } else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "-help") == 0 ) {		// -h print help
         	printHelp();
+                exit(0);
         }  
         if (i == argc - 1) {
             if (directory.empty()) {
