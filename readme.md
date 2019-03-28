@@ -1,17 +1,17 @@
 # Project Title
-
-<<<<<<< HEAD:readme.md
 Program to find files by name, extension and/or find a string within the files found.
 Table of Contents
 
 # Install 
-```./configure
+```
+./configure
 make
 make install
 ```
 
 # How To Use
-```Type:
+```
+Type:
 search Followed by These Options:
 
 	-n : 		 Specify a File Name to Search
@@ -28,7 +28,8 @@ search Followed by These Options:
 ```
 
 # Examples:
-```./search -e "txt" -s "cmake" -d "$HOME/Documents"
+```
+./search -e "txt" -s "cmake" -d "$HOME/Documents"
   ^       ^        ^          ^
   ¦       ¦        ¦          ¦-----> Search Within this Directory
   ¦       ¦        ¦-----> Search the String "cmake" in All the Files Found With Extension ".txt"
@@ -42,8 +43,4 @@ search Followed by These Options:
   ¦---> Name of Program
 
 =======
-```
-Give examples
->>>>>>> 066173ffd85cc19d7ce80dd27a1264d105b26f4a:readme.txt
-```
 
