@@ -1,11 +1,11 @@
 # Search
 Program to find files by name, extension and/or find a string within the files found.
 
-## Install 
-## On Linux
+## How to Install On Linux
 ```
 git clone https://github.com/ganimaedes/search.git
 cd search/
+./autogen.sh
 ./configure
 make
 sudo make install
