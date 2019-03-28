@@ -39,3 +39,4 @@ configure
 depcomp
 install-sh
 missing
+*.am
