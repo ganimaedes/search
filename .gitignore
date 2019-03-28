@@ -38,7 +38,7 @@
 compile
 depcomp
 missing
-*.am
+# *.am
 *.log
 config.*
 *-sh
