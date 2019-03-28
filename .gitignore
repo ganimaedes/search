@@ -36,6 +36,5 @@
 *.cache
 compile
 depcomp
-install-sh
 missing
 *.am
