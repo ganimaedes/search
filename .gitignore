@@ -34,8 +34,8 @@
 # 
 *.m4
 *.cache
-./src/compile
-./src/configure
-./src/depcomp
-./install-sh
-./missing
+compile
+configure
+depcomp
+install-sh
+missing
