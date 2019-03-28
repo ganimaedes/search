@@ -33,6 +33,7 @@
 
 # 
 *.m4
+*.ac
 *.cache
 compile
 depcomp

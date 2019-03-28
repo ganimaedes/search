@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "search.h"
 #include <locale>
 

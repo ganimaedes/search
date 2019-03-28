@@ -1,0 +1,53 @@
+Making install in src
+make[1]: Entering directory '/home/ubuntu-gnome/search/src'
+make[2]: Entering directory '/home/ubuntu-gnome/search/src'
+ /bin/mkdir -p '/usr/local/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libSearch.la '/usr/local/lib'
+libtool: install: /usr/bin/install -c .libs/libSearch.so.0.0.0 /usr/local/lib/libSearch.so.0.0.0
+libtool: install: (cd /usr/local/lib && { ln -s -f libSearch.so.0.0.0 libSearch.so.0 || { rm -f libSearch.so.0 && ln -s libSearch.so.0.0.0 libSearch.so.0; }; })
+libtool: install: (cd /usr/local/lib && { ln -s -f libSearch.so.0.0.0 libSearch.so || { rm -f libSearch.so && ln -s libSearch.so.0.0.0 libSearch.so; }; })
+libtool: install: /usr/bin/install -c .libs/libSearch.lai /usr/local/lib/libSearch.la
+libtool: install: /usr/bin/install -c .libs/libSearch.a /usr/local/lib/libSearch.a
+libtool: install: chmod 644 /usr/local/lib/libSearch.a
+libtool: install: ranlib /usr/local/lib/libSearch.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/sbin" ldconfig -n /usr/local/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /bin/mkdir -p '/usr/local/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install -c search '/usr/local/bin'
+libtool: install: /usr/bin/install -c .libs/search /usr/local/bin/search
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/ubuntu-gnome/search/src'
+make[1]: Leaving directory '/home/ubuntu-gnome/search/src'
+make[1]: Entering directory '/home/ubuntu-gnome/search'
+make[2]: Entering directory '/home/ubuntu-gnome/search'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/home/ubuntu-gnome/search'
+make[1]: Leaving directory '/home/ubuntu-gnome/search'
+
+cd search/
+sudo chmod +x autogen.sh
+./autogen.sh
+./configure
+make 
+sudo make install
+sudo ldconfig
+
+

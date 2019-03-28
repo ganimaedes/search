@@ -5,10 +5,11 @@ Program to find files by name, extension and/or find a string within the files f
 ## On Linux
 ```
 git clone https://github.com/ganimaedes/search.git
-cd search/src
+cd search/
 ./configure
 make
-make install
+sudo make install
+sudo ldconfig
 ```
 
 ## How To Use
@@ -32,18 +33,18 @@ Type:
 
 ## Examples:
 ```
-./search -e "txt" -s "cmake" -d "$HOME/Documents"
-  ^       ^        ^          ^
-  ¦       ¦        ¦          ¦-----> Search Within this Directory
-  ¦       ¦        ¦-----> Search the String "cmake" in All the Files Found With Extension ".txt"
-  ¦       ¦-----> Search for extension ".txt"
-  ¦---> Name of Program
+search -e "txt" -s "cmake" -d "$HOME/Documents"
+^       ^        ^          ^
+¦       ¦        ¦          ¦-----> Search Within this Directory
+¦       ¦        ¦-----> Search the String "cmake" in All the Files Found With Extension ".txt"
+¦       ¦-----> Search for extension ".txt"
+¦---> Name of Program
 
-./search -n "CMake" -d "$HOME/Documents"
-  ^       ^          ^
-  ¦       ¦          ¦-----> Search Within this Directory
-  ¦       ¦-----> Search for This String in File Name
-  ¦---> Name of Program
+search -n "CMake" -d "$HOME/Documents"
+^       ^          ^
+¦       ¦          ¦-----> Search Within this Directory
+¦       ¦-----> Search for This String in File Name
+¦---> Name of Program
 
 =======
 ```
