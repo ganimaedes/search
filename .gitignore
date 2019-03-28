@@ -40,3 +40,10 @@ depcomp
 missing
 *.am
 *.log
+config.*
+.*-sh
+NOTES
+*.in
+Makeile
+.deps
+.libs
