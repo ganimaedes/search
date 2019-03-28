@@ -1,15 +1,15 @@
-# Search
+Search
 
 Program to find files by name, extension and/or find a string within the files found.
-## Table of Contents
+Table of Contents
 
-## Install 
+Install 
 ```./configure
 make
 make install
 ```
 
-## How To Use
+How To Use
 ```Type:
 search Followed by These Options:
 
