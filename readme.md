@@ -1,5 +1,6 @@
-# Search
+# Project Title
 
+<<<<<<< HEAD:readme.md
 Program to find files by name, extension and/or find a string within the files found.
 Table of Contents
 
@@ -40,5 +41,9 @@ search Followed by These Options:
   ¦       ¦-----> Search for This String in File Name
   ¦---> Name of Program
 
+=======
+```
+Give examples
+>>>>>>> 066173ffd85cc19d7ce80dd27a1264d105b26f4a:readme.txt
 ```
 
