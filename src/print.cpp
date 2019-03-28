@@ -8,7 +8,7 @@ Print::Print(std::vector<Directories> &array, bool printAllFiles) : m_array(arra
         	std::cout << m_array[i].name << "\n";	
     	}	
     } else {
-    	printAll(array);
+    	printAll(m_array);
     }
 }
 
