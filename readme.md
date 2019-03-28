@@ -5,7 +5,7 @@ Program to find files by name, extension and/or find a string within the files f
 ## On Linux
 ```
 git clone https://github.com/ganimaedes/search.git
-cd src
+cd search/src
 ./configure
 make
 make install

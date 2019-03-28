@@ -35,7 +35,6 @@
 *.m4
 *.cache
 compile
-configure
 depcomp
 install-sh
 missing
