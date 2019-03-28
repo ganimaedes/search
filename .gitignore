@@ -41,9 +41,11 @@ missing
 *.am
 *.log
 config.*
-.*-sh
+*-sh
 NOTES
 *.in
-Makeile
+Makefile
 .deps
 .libs
+.*in~
+*-h1
