@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# 
+*.m4
+*.cache
+./src/compile
+./src/configure
+./src/depcomp
+./install-sh
+./missing

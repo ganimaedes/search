@@ -1,15 +1,17 @@
 # Search
 Program to find files by name, extension and/or find a string within the files found.
-Table of Contents
 
-# Install 
+## Install 
+## On Linux
 ```
+git clone https://github.com/ganimaedes/search.git
+cd src
 ./configure
 make
 make install
 ```
 
-# How To Use
+## How To Use
 
 Type:
 
@@ -28,7 +30,7 @@ Type:
 	-d : 		 Specify a Directory to Search Into
 ```
 
-# Examples:
+## Examples:
 ```
 ./search -e "txt" -s "cmake" -d "$HOME/Documents"
   ^       ^        ^          ^
@@ -44,4 +46,5 @@ Type:
   ¦---> Name of Program
 
 =======
+```
 
