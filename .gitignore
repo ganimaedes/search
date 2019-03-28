@@ -38,3 +38,4 @@ compile
 depcomp
 missing
 *.am
+*.log
