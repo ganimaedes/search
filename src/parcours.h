@@ -19,21 +19,21 @@ static const std::string reset = "\033[";
 
 struct Directories
 {
-	std::string name;
-	int indent;			
+    std::string name;
+    int indent;			
 };
 
 struct Files
 {
-	std::string name;
-	std::string ofDir;
-	std::string previousDir;
-	int indent;
+    std::string name;
+    std::string ofDir;
+    std::string previousDir;
+    int indent;
 };
 
 class Parcours 
 {
-	char *m_fn;
+    char *m_fn;
     int m_indent;
     
     std::string m_prevDir;
@@ -46,16 +46,15 @@ class Parcours
     
 public:
     Parcours();
-	void recursiveParcours(char *fn, 
-						   int indent, 
-						   Array<Directories, Files> &array,
-						   std::string prevDir = "",
-    	     			   std::string findFile = "", 
-    	     			   std::string findExtension = "", 
-    	     			   std::string strSearchInFile = "");
+    void recursiveParcours(char *fn, 
+                           int indent, 
+                           Array<Directories, Files> &array,
+                           std::string prevDir = "",
+                           std::string findFile = "", 
+                           std::string findExtension = "", 
+                           std::string strSearchInFile = "");
     bool matchExtension(char *name, const char *ext);
     void searchFile(Search &search, std::string m_path, struct dirent *m_entry);
-   
 };
 
 #endif  // PARCOURS_H

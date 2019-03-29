@@ -10,10 +10,10 @@ static const char *collapse = "🗁";
 
 class Print
 {
-	Array<Directories, Files> &m_array;
+    Array<Directories, Files> &m_array;
 public:
-	Print(Array<Directories, Files> &array, bool printAllFiles);
-	void printAll(Array<Directories, Files> &array);
+    Print(Array<Directories, Files> &array, bool printAllFiles);
+    void printAll(Array<Directories, Files> &array);
 };
 
 #endif	// PRINT_H

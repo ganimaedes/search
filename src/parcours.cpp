@@ -12,25 +12,25 @@ Parcours::Parcours()
 {}
 
 void Parcours::recursiveParcours(char *fn, 
-								 int indent, 
-								 Array<Directories, Files> &array,
-								 std::string prevDir,
-                   				 std::string findFile, 
-                   				 std::string findExtension, 
-                   				 std::string strSearchInFile)
+                                 int indent, 
+                                 Array<Directories, Files> &array,
+                                 std::string prevDir,
+                                 std::string findFile, 
+                                 std::string findExtension, 
+                                 std::string strSearchInFile)
 {
-	DIR *dir;
-	struct dirent *entry;
-	struct stat info;
-	std::string path;
-	Directories direct = {};
-	Files files = {};
-	
-	if (array.getNDirs() == 0) {
-		direct.name = fn;
-		direct.indent = indent;
-		array.addDir(&direct);
-	}
+    DIR *dir;
+    struct dirent *entry;
+    struct stat info;
+    std::string path;
+    Directories direct = {};
+    Files files = {};
+    
+    if (array.getNDirs() == 0) {
+            direct.name = fn;
+            direct.indent = indent;
+            array.addDir(&direct);
+    }
 	
     if ((dir = opendir(fn)) == nullptr) {
             std::cerr << "opendir error\n";
@@ -43,58 +43,51 @@ void Parcours::recursiveParcours(char *fn,
                 if (stat(path.c_str(), &info) != 0) {
                     std::cerr << "Error " << path << " " << errno << "\n";
                 } else if (entry->d_type == DT_REG) {
-                
-                	if (!m_findExtension.empty() && matchExtension(entry->d_name, m_findExtension.c_str())) {
-                        m_foundExt = true;
+                    if (!m_findExtension.empty() && matchExtension(entry->d_name, m_findExtension.c_str())) {
+                    m_foundExt = true;
                     }
                     std::string name_entry = entry->d_name;
                     if (!m_findFile.empty() && name_entry.find(m_findFile) != std::string::npos) { 
                     // si on veut str exact : m_findFile.compare(m_entry->d_name) == 0
                         m_foundFileName = true;
                     }
-                    
                     if (!m_strSearchInFile.empty() && (m_foundExt || m_foundFileName)) {
                         std::string name = path;
                         Search search(m_strSearchInFile, name);
                         searchFile(search, name, entry);
                     }
+                    files.name = entry->d_name;
+                    files.indent = indent;
                     
-                
-					files.name = entry->d_name;
-					files.indent = indent;
-					
-					files.ofDir = fn;
-					files.previousDir = fn;
-					array.addFile(&files); // 2
-					
+                    files.ofDir = fn;
+                    files.previousDir = fn;
+                    array.addFile(&files); // 2
                     m_foundExt = false;
                     m_foundFileName = false;
-                    
                 } else if (S_ISDIR(info.st_mode)) {
-					direct.name = path;
-					direct.indent = indent;
-					array.addDir(&direct);
+                    direct.name = path;
+                    direct.indent = indent;
+                    array.addDir(&direct);
                 
                     if (!m_findExtension.empty() || !m_strSearchInFile.empty()) {
                         recursiveParcours(const_cast<char *>(path.c_str()), 
-                        				  indent + 1, 
-                        				  array, 
-                        				  m_prevDir, 
-                        				  "", 
-                        				  m_findExtension, 
-                        				  m_strSearchInFile);
+                                          indent + 1, 
+                                          array, 
+                                          m_prevDir, 
+                                          "", 
+                                          m_findExtension, 
+                                          m_strSearchInFile);
                     } else if (!m_findFile.empty()) {
-                       
                         recursiveParcours(const_cast<char *>(path.c_str()), 
-                        				  indent + 1, 
-                        				  array, 
-                        				  m_prevDir, 
-                        				  m_findFile, 
-                        				  "", 
-                        				  m_strSearchInFile);
+                                          indent + 1, 
+                                          array, 
+                                          m_prevDir, 
+                                          m_findFile, 
+                                          "", 
+                                          m_strSearchInFile);
                     }
                    
-                	recursiveParcours(const_cast<char *>(path.c_str()), indent + 1, array); // , m_prevDir
+                    recursiveParcours(const_cast<char *>(path.c_str()), indent + 1, array); // , m_prevDir
                     //recursiveParcours(const_cast<char *>(path.c_str()), indent + 1, array);
                 }
             }

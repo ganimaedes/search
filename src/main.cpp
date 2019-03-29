@@ -45,17 +45,17 @@ void printHelp()
               << "\t-d : \t\t Specify a Directory to Search Into\n\n"
               << "\t-h : \t\t Print This Help Screen\n\n";
     std::cout << "Examples:\n"
-              << "./search -e \"txt\" -s \"cmake\" -d \"$HOME/Documents\"\n"
-              << "  ^       ^        ^          ^\n"
-              << "  ¦       ¦        ¦          ¦-----> Search Within this Directory\n"
-              << "  ¦       ¦        ¦-----> Search the String \"cmake\" in All the Files Found With Extension \".txt\"\n"
-              << "  ¦       ¦-----> Search for extension \".txt\"\n"
-              << "  ¦---> Name of Program\n\n";
-    std::cout << "./search -n \"CMake\" -d \"$HOME/Documents\"\n"
-              << "  ^       ^          ^\n"
-              << "  ¦       ¦          ¦-----> Search Within this Directory\n"
-              << "  ¦       ¦-----> Search for This String in File Name\n"
-              << "  ¦---> Name of Program\n";
+              << "search -e \"txt\" -s \"cmake\" -d \"$HOME/Documents\"\n"
+              << "^       ^          ^            ^\n"
+              << "¦       ¦          ¦            ¦-----> Search Within this Directory\n"
+              << "¦       ¦          ¦-----> Search the String \"cmake\" in All the Files Found With Extension \".txt\"\n"
+              << "¦       ¦-----> Search for extension \".txt\"\n"
+              << "¦---> Name of Program\n\n";
+    std::cout << "search -n \"CMake\" -d \"$HOME/Documents\"\n"
+              << "^       ^            ^\n"
+              << "¦       ¦            ¦-----> Search Within this Directory\n"
+              << "¦       ¦-----> Search for This String in File Name\n"
+              << "¦---> Name of Program\n";
 }
 
 int main(int argc, char *argv[])
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
                 std::cerr << "Missing argument for string to search in file\n";
                 exit(-1);
             }
-        } else if (strcmp(argv[i], "-p") == 0) {					        					// -p print all files and folders in directory
+        } else if (strcmp(argv[i], "-p") == 0) {					        // -p print all files and folders in directory
         	if (i < argc - 1) {
               	directory = argv[i + 1];
               	printAllFoldersAndFiles = true;
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
                 std::cerr << "Missing argument for directory to search\n";
                 exit(-1);
             }
-        } else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0 ) {				// -h print help
+        } else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0 ) {		// -h print help
         	printHelp();
                 exit(0);
         }  
