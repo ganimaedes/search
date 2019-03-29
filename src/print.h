@@ -2,16 +2,18 @@
 #define PRINT_H
 
 #include "parcours.h"
+#include <locale.h>
 
 #include <iostream>
-#include <vector>
+
+static const char *collapse = "🗁";
 
 class Print
 {
-	std::vector<Directories> &m_array;
+	Array<Directories, Files> &m_array;
 public:
-	Print(std::vector<Directories> &array, bool printAllFiles);
-	void printAll(std::vector<Directories> &array);
+	Print(Array<Directories, Files> &array, bool printAllFiles);
+	void printAll(Array<Directories, Files> &array);
 };
 
 #endif	// PRINT_H

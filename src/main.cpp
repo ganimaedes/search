@@ -24,8 +24,6 @@
 #include "parcours.h"
 #include "print.h"
 
-#include <vector>
-
 const char *showWD()
 {
     if (getenv("HOME")) {
@@ -63,9 +61,7 @@ void printHelp()
 int main(int argc, char *argv[])
 {    
     std::string fileName, fileExtension, directory, strInFile, printAll;
-    fileName.clear(); fileExtension.clear(); directory.clear(); strInFile.clear(), printAll.clear();
-    //./main2 -e "txt" -s "cmake" -d "$HOME/qwtq",./main2 -n "CMake" -d "$HOME/qwtq"
-    // verifier si pour -e ".txt" est mis et l'enlever
+
     bool printAllFoldersAndFiles = false;
     for (int i = 0; i < argc; ++i) {
         if (strcmp(argv[i], "-n") == 0) {                                           	        // -n fileName
@@ -126,32 +122,28 @@ int main(int argc, char *argv[])
             }
         } 
     }
-    
-    //std::cout << "fileName.length() = " << fileName.length() << "  fileExtension.length() = " << fileExtension.length()
-    //          << "\ndirectory.length() = " << directory.length() << "  strInFile.length() = " << strInFile.length() << "\n";
-	//std::string prevDir;
-	
-    std::vector<Directories> array;
-    
+    	
+    Array<Directories, Files> array;
+    Parcours p;
     if (!directory.empty() && fileName.empty() && fileExtension.empty() && strInFile.empty()) {
         std::cout << "1\n";
-        Parcours(const_cast<char *>(directory.c_str()), 0, array, "", ""); 
+        p.recursiveParcours(const_cast<char *>(directory.c_str()), 0, array, "", ""); 
         Print p(array, printAllFoldersAndFiles);
     } else if (!directory.empty() && !fileName.empty() && fileExtension.empty() && strInFile.empty()) {
         std::cout << "2\n";
-        Parcours(const_cast<char *>(directory.c_str()), 0, array, "", fileName.c_str(), "", "");
+        p.recursiveParcours(const_cast<char *>(directory.c_str()), 0, array, "", fileName.c_str(), "", "");
     } else if (!directory.empty() && fileName.empty() && !fileExtension.empty() && strInFile.empty()){
         std::cout << "3\n";
-        Parcours(const_cast<char *>(directory.c_str()), 0, array, "", "", fileExtension.c_str(), ""); 
+        p.recursiveParcours(const_cast<char *>(directory.c_str()), 0, array, "", "", fileExtension.c_str(), ""); 
     } else if (!directory.empty() && !fileName.empty() && !fileExtension.empty() && strInFile.empty()) {
         std::cout << "4\n";
-        Parcours(const_cast<char *>(directory.c_str()), 0, array, "", fileName.c_str(), fileExtension.c_str(), ""); 
+        p.recursiveParcours(const_cast<char *>(directory.c_str()), 0, array, "", fileName.c_str(), fileExtension.c_str(), ""); 
     } else if (!directory.empty() && !fileName.empty() && fileExtension.empty() && !strInFile.empty()) {
         std::cout << "5\n";
-        Parcours(const_cast<char *>(directory.c_str()), 0, array, "", fileName.c_str(), "", strInFile.c_str()); 
+        p.recursiveParcours(const_cast<char *>(directory.c_str()), 0, array, "", fileName.c_str(), "", strInFile.c_str()); 
     } else if (!directory.empty() && fileName.empty() && !fileExtension.empty() && !strInFile.empty()) {
         std::cout << "6\n";
-        Parcours(const_cast<char *>(directory.c_str()), 0, array, "", "", fileExtension.c_str(), strInFile.c_str()); 
+        p.recursiveParcours(const_cast<char *>(directory.c_str()), 0, array, "", "", fileExtension.c_str(), strInFile.c_str()); 
     } else {
         std::cerr << "Error: missing arguments\n";
     }
