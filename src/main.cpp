@@ -17,9 +17,6 @@
  *
  */
 
-#include <unistd.h>
-#include <pwd.h>
-
 #include "parcours.h"
 #include "print.h"
 
@@ -51,11 +48,11 @@ void printHelp()
 
 void printVersion()
 {
-	std::cout << "Search v.0.0.1\n"
-			  << "License: MIT\n"
-			  << "This is free software: you are free to change and redistribute it.\n"
-			  << "There is NO WARRANTY, to the extent permitted by law.\n"
-			  << "Written by github.com/ganimaedes\n";
+    std::cout << "Search v.0.0.1\n"
+              << "License: MIT\n"
+              << "This is free software: you are free to change and redistribute it.\n"
+              << "There is NO WARRANTY, to the extent permitted by law.\n"
+              << "Written by github.com/ganimaedes\n";
 }
 
 int main(int argc, char *argv[])
@@ -85,7 +82,7 @@ int main(int argc, char *argv[])
                 std::cerr << "Missing argument for string to search in file\n";
                 exit(-1);
             }
-        } else if (!strcmp(argv[i], "-p") || !strcmp(argv[i], "--print")) {					      	// -p print all files and folders in directory
+    } else if (!strcmp(argv[i], "-p") || !strcmp(argv[i], "--print")) {			                // -p print all files and folders in directory
             if (i < argc - 1) {
                 directory = argv[i + 1];
                 printAllFoldersAndFiles = true;
@@ -100,10 +97,10 @@ int main(int argc, char *argv[])
                 std::cerr << "Missing argument for directory to search\n";
                 exit(-1);
             }
-        } else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {							// -h print help
+        } else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {				// -h print help
             printHelp();
             exit(0);
-        } else if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--version")) {						// -v print version
+        } else if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--version")) {				// -v print version
             printVersion();
             exit(0);
         }  
