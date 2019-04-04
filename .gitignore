@@ -54,3 +54,4 @@ ltmain.sh
 libtool
 FONCTIONNE*
 search
+*.json

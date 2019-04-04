@@ -46,7 +46,7 @@ To Search For a File Within a Folder:
 search -n "CMake" -d "$HOME/Documents"
 ^       ^          ^
 ¦       ¦          ¦-----> Search Within this Directory
-¦       ¦-----> Search for a File Name containing the Following String
+¦       ¦-----> Search for a File Name containing CMake
 ¦---> Name of Program
 
 =======
