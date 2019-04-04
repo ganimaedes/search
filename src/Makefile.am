@@ -10,4 +10,4 @@ search_LDADD = libSearch.la
 
 lib_LTLIBRARIES = libSearch.la
 libSearch_la_LDFLAGS = -version-info 0:0:0
-libSearch_la_SOURCES = search.cpp print.cpp parcours.cpp search.h print.h parcours.h
+libSearch_la_SOURCES = search.cpp parcours.cpp stats.cpp print.cpp search.h parcours.h stats.h print.h
