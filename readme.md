@@ -32,6 +32,7 @@ Type:
 ```
 
 ## Examples:
+To Search For a String in a File Within a Folder:
 ```
 search -e "txt" -s "cmake" -d "$HOME/Documents"
 ^       ^        ^          ^
@@ -39,11 +40,13 @@ search -e "txt" -s "cmake" -d "$HOME/Documents"
 ¦       ¦        ¦-----> Search the String "cmake" in All the Files Found With Extension ".txt"
 ¦       ¦-----> Search for extension ".txt"
 ¦---> Name of Program
-
+```
+To Search For a File Within a Folder:
+```
 search -n "CMake" -d "$HOME/Documents"
 ^       ^          ^
 ¦       ¦          ¦-----> Search Within this Directory
-¦       ¦-----> Search for This String in File Name
+¦       ¦-----> Search for a File Name containing the Following String
 ¦---> Name of Program
 
 =======

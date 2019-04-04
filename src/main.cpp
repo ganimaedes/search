@@ -49,6 +49,15 @@ void printHelp()
               << "¦---> Name of Program\n";
 }
 
+void printVersion()
+{
+	std::cout << "Search v.0.0.1\n"
+			  << "License: MIT\n"
+			  << "This is free software: you are free to change and redistribute it.\n"
+			  << "There is NO WARRANTY, to the extent permitted by law.\n"
+			  << "Written by github.com/ganimaedes\n";
+}
+
 int main(int argc, char *argv[])
 {    
     std::string fileName, fileExtension, directory, strInFile, printAll;
@@ -93,6 +102,9 @@ int main(int argc, char *argv[])
             }
         } else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {							// -h print help
             printHelp();
+            exit(0);
+        } else if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--version")) {						// -v print version
+            printVersion();
             exit(0);
         }  
         if (i == argc - 1) {
