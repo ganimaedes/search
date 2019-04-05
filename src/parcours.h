@@ -14,8 +14,8 @@
 #include "array.h"
 #include "search.h"
 
-static const std::string red = "\033[31m";
-static const std::string reset = "\033[";
+const std::string red("\033[0;31m");
+const std::string reset("\033[0m");
 
 struct Directories
 {
@@ -54,6 +54,9 @@ public:
                            std::string findFile = "", 
                            std::string findExtension = "", 
                            std::string strSearchInFile = "");
+	std::string toLowerStr(std::string &str);
+	std::size_t findPositionBegin(std::string &pathToPrint);
+	bool foundStr(std::string fileNameToSearch, std::string entry, const bool regardlessOfCaps);
     bool matchExtension(char *name, const char *ext);
     void searchFile(Search &search, std::string &m_path, struct dirent *m_listDir);
 };
