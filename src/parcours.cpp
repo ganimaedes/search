@@ -28,8 +28,8 @@ void Parcours::recursiveParcours(char *name,
     
     if (array.getNDirs() == 0) { 
     	m_strSearchInFile = strSearchInFile;
-		m_findFile = findFile;
-		m_findExtension = findExtension;
+        m_findFile = findFile;
+        m_findExtension = findExtension;
         direct.name = name;
         direct.space = space;
         array.addDir(&direct);
@@ -54,7 +54,7 @@ void Parcours::recursiveParcours(char *name,
                     // name_entry.find(m_findFile) != std::string::npos
                     // si on veut str exact : m_findFile.compare(listDir->d_name) == 0
                     	for (int n = 0; n < space + 1; ++n) { 
-							std::cout << ((std::size_t)n > strlen(name) ? " " : "  ");
+                            std::cout << ((std::size_t)n > strlen(name) ? " " : "  ");
                         }
                         std::size_t pos = findPositionBegin(path);
                         for (std::size_t i = 0; i < path.length(); ++i) {
