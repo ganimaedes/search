@@ -135,7 +135,7 @@ std::size_t Parcours::findPositionBegin(std::string &pathToPrint)
 
 bool Parcours::foundStr(std::string fileNameToSearch, std::string entry, const bool regardlessOfCaps) 
 {	
-    if (regardlessOfCaps) {
+    if (!regardlessOfCaps) {
         fileNameToSearch = toLowerStr(fileNameToSearch);
         entry = toLowerStr(entry);
     }
