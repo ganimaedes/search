@@ -26,10 +26,10 @@ void Parcours::recursiveParcours(char *name,
     Directories direct = {};
     Files files = {};
     
-    if (array.getNDirs() == 0) {
+    if (array.getNDirs() == 0) { 
     	m_strSearchInFile = strSearchInFile;
-    	m_findFile = findFile;
-    	m_findExtension = findExtension;
+		m_findFile = findFile;
+		m_findExtension = findExtension;
         direct.name = name;
         direct.space = space;
         array.addDir(&direct);
@@ -54,7 +54,7 @@ void Parcours::recursiveParcours(char *name,
                     // name_entry.find(m_findFile) != std::string::npos
                     // si on veut str exact : m_findFile.compare(listDir->d_name) == 0
                     	for (int n = 0; n < space + 1; ++n) { 
-                            std::cout << ((std::size_t)n > strlen(name) ? " " : "  ");
+							std::cout << ((std::size_t)n > strlen(name) ? " " : "  ");
                         }
                         std::size_t pos = findPositionBegin(path);
                         for (std::size_t i = 0; i < path.length(); ++i) {
@@ -62,11 +62,10 @@ void Parcours::recursiveParcours(char *name,
                                 std::cout << red << path[i];
                             } else if (i == pos + m_findFile.length() + 1) {
                                 std::cout << reset << path[i];
+                            } else if (i == path.length() - 1) {
+                                std::cout << std::endl;
                             } else {
                                 std::cout << path[i];
-                            }
-                            if (i == path.length() - 1) {
-                                std::cout << std::endl;
                             }
                         }
                         m_foundFileName = true;
@@ -89,7 +88,6 @@ void Parcours::recursiveParcours(char *name,
                     direct.name = path;
                     direct.space = space;
                     array.addDir(&direct);
-                
                     if (!m_findExtension.empty() || !m_strSearchInFile.empty()) {
                         recursiveParcours(const_cast<char *>(path.c_str()), 
                                           space + 1, 
@@ -139,7 +137,7 @@ bool Parcours::foundStr(std::string fileNameToSearch, std::string entry, const b
         fileNameToSearch = toLowerStr(fileNameToSearch);
         entry = toLowerStr(entry);
     }
-    std::size_t counter = 1;
+    std::size_t counter = 0;
     for (std::size_t i = 0, j = 0; i < fileNameToSearch.length(); ++i) {
         if (fileNameToSearch[i] == entry[j++]) {
             ++counter;
