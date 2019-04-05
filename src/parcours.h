@@ -55,7 +55,7 @@ public:
                            std::string findExtension = "", 
                            std::string strSearchInFile = "");
     bool matchExtension(char *name, const char *ext);
-    void searchFile(Search &search, std::string m_path, struct dirent *m_listDir);
+    void searchFile(Search &search, std::string &m_path, struct dirent *m_listDir);
 };
 
 #endif  // PARCOURS_H

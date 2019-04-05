@@ -27,6 +27,9 @@ void Parcours::recursiveParcours(char *name,
     Files files = {};
     
     if (array.getNDirs() == 0) {
+    	m_strSearchInFile = strSearchInFile;
+    	m_findFile = findFile;
+    	m_findExtension = findExtension;
         direct.name = name;
         direct.space = space;
         array.addDir(&direct);
@@ -74,7 +77,7 @@ void Parcours::recursiveParcours(char *name,
                         recursiveParcours(const_cast<char *>(path.c_str()), 
                                           space + 1, 
                                           array, 
-                                          m_prevDir, 
+                                          prevDir, 
                                           "", 
                                           m_findExtension, 
                                           m_strSearchInFile);
@@ -82,12 +85,11 @@ void Parcours::recursiveParcours(char *name,
                         recursiveParcours(const_cast<char *>(path.c_str()), 
                                           space + 1, 
                                           array, 
-                                          m_prevDir, 
+                                          prevDir, 
                                           m_findFile, 
                                           "", 
                                           m_strSearchInFile);
                     }
-                   
                     recursiveParcours(const_cast<char *>(path.c_str()), space + 1, array); 
                 }
             }
@@ -102,7 +104,7 @@ bool Parcours::matchExtension(char *name, const char *ext)
     return namelen >= extlen && !strcmp(name + namelen - extlen, ext);
 }
 
-void Parcours::searchFile(Search &search, std::string m_path, struct dirent *m_listDir)
+void Parcours::searchFile(Search &search, std::string &m_path, struct dirent *m_listDir)
 {
     if (!search.getLinesFound().empty()) {
         if (!m_findExtension.empty() || !m_findFile.empty()) {
