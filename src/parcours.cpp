@@ -63,7 +63,7 @@ void Parcours::recursiveParcours(char *name,
                             } else if (i == pos + m_findFile.length() + 1) {
                                 std::cout << reset << path[i];
                             } else if (i == path.length() - 1) {
-                                std::cout << std::endl;
+                                std::cout << path[i] << std::endl;
                             } else {
                                 std::cout << path[i];
                             }
